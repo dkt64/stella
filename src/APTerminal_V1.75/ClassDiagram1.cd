@@ -1,0 +1,108 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="APTerminal.MainForm" Collapsed="true">
+    <Position X="2.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>//3/t19vl+357vhKuYeSHj6f57vn////27f8//v73/c=</HashCode>
+      <FileName>Form_Main.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="APTerminal.Form_PodajNazwePrzyrzadu" Collapsed="true">
+    <Position X="0.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAAAhIAAACABgACEAIAAAAIAAAAEAEAAAA=</HashCode>
+      <FileName>Form_PodajNazwePrzyrzadu.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="APTerminal.Modbus">
+    <Position X="10" Y="0.5" Width="3.25" />
+    <TypeIdentifier>
+      <HashCode>BMTAAAj6KGCFCEChBIqAySAjIMBUQQeUGKAiksiUAKA=</HashCode>
+      <FileName>Modbus.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="APTerminal.PLC" Collapsed="true">
+    <Position X="0.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>JBBNAAAAwUQAJCAAACAChgmIEQAgREKkAQAAoAUiAAg=</HashCode>
+      <FileName>PLC.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="APTerminal.Program" Collapsed="true">
+    <Position X="2.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAA=</HashCode>
+      <FileName>Program.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="APTerminal.Serial" Collapsed="true">
+    <Position X="0.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gAACAABYQAAAoEgwQAAAQAAEAAAAAIAAAAACACCAIgA=</HashCode>
+      <FileName>Serial.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="APTerminal.Tools" Collapsed="true">
+    <Position X="2.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ACQQACACABBBAACQAAACCAAAQAggAAAAAggCEABAoAg=</HashCode>
+      <FileName>Tools.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="APTerminal.Zarzadzanie" Collapsed="true">
+    <Position X="4" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQABAgCCgDEAQCAAAAAAgAAAAAAAAAAAAAAGEAAAEIA=</HashCode>
+      <FileName>Zarzadzanie.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="APTerminal.Properties.Resources" Collapsed="true">
+    <Position X="4" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAABEAAAAQAAAAAAAAAAAAAAAIA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Struct Name="APTerminal.IOImageBuf" Collapsed="true">
+    <Position X="2.25" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAFAAAAAAAAAAAAAAAAAAAAICAAAAQAAAA=</HashCode>
+      <FileName>Image.cs</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="APTerminal.IOImage" Collapsed="true">
+    <Position X="0.5" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAACAAAAAAFAAAAAAAAAAAAAAAAAAAAICACAAQAAAA=</HashCode>
+      <FileName>Image.cs</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="APTerminal.ParametryBuf" Collapsed="true">
+    <Position X="0.5" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>TEBkQiACQAAAQAACABIBAAAQiCQAEgAAIDAAISKBDAA=</HashCode>
+      <FileName>Parametry.cs</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="APTerminal.ParametryStruct" Collapsed="true">
+    <Position X="2.25" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>TEBkQiACQAAAQAACABIBAAAQiCQAEgAAIDAAISKBDAA=</HashCode>
+      <FileName>Parametry.cs</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="APTerminal.Parametry" Collapsed="true">
+    <Position X="4" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAACACAAAAA=</HashCode>
+      <FileName>Parametry.cs</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="APTerminal.plcvar" Collapsed="true">
+    <Position X="4" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAEAAIEAAAAIAAIACgIAABQABAABAAAAAAAAAQAAIAA=</HashCode>
+      <FileName>PLC.cs</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

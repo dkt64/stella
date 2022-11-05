@@ -1,0 +1,8 @@
+Open On-Chip Debugger 0.4.0 (2010-02-22-19:05)
+Licensed under GNU GPL v2
+For bug reports, read
+	http://openocd.berlios.de/doc/doxygen/bugs.html
+500 kHz
+jtag_nsrst_delay: 100
+srst_only separate srst_gates_jtag srst_open_drain
+flash write_image D:/barteka/Stellaris/workspace/Stella_C1_Firmware/Release/Stella_C1_Firmware.elf: command requires more arguments

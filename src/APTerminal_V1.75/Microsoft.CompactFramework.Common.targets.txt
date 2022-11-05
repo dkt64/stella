@@ -1,0 +1,21 @@
+Disabling PlatformVerificationTask: If it is so useful, why will I disable it at all?
+
+Though Platform Verification Task aids the developer in identifying all the unsupported PMEs getting accessed in code at build time itself, it does add quite a bit to the build time. Ideally the developer might like to run PVT only once in a while and not during every build. Currently there is no support in the VS2005 IDE to customize the execution of PVT during build, though we are looking to add support for it in next release. As a workaround for VS2005, PVT execution can be customized by following the steps below:
+
+1)    Open the file %windir%\Microsoft.NET\Framework\v2.0.50727\Microsoft.CompactFramework.Common.Targets for editing.
+
+2)    Go to the line which reads:
+
+Name="PlatformVerificationTask">
+
+and change it to:
+
+Name="PlatformVerificationTask" Condition="'$(SkipPlatformVerification)' != 'true'">
+
+ 
+
+3)     Add the SkipPlatformVerification environment variable to the system and set it to "true" (To re-enable Platform Verification set the environment variable to "false")
+
+ 
+
+4)     Restart Visual Studio for the changes to take effect (If building from the command line using MSBuild, add /p:SkipPlatformVerification=true to your command line to turn off the task. You can specify the variable in the project file also, so that this information is persisted across sessions).

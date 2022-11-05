@@ -1,0 +1,233 @@
+        /* 
+         * =========================================================================================================================================================
+         * Nazwa:           Dokladny pomiar czasu
+         * 
+         * Przeznaczenie:   POmiar czasu w mikrosekundach
+         *                  
+         * Parametry:       -
+         * =========================================================================================================================================================
+         */
+        static private bool isPerfCounterSupported = false;
+        static private Int64 frequency = 0;
+
+#if WindowsCE
+        private const string lib = "coredll.dll";
+#else
+        private const string lib = "Kernel32.dll";
+#endif
+
+        [DllImport(lib)]
+        private static extern int QueryPerformanceCounter(ref Int64 count);
+        [DllImport(lib)]
+        private static extern int QueryPerformanceFrequency(ref Int64 frequency);
+
+        /* 
+         * =========================================================================================================================================================
+         * Nazwa:           TimerInit
+         * 
+         * Przeznaczenie:   Inicjacja wykonywana przy starcie aplikacji. Ustalenie czestotliwosci z jaka mozna mierzyc
+         *                  
+         * Parametry:       -
+         * =========================================================================================================================================================
+         */
+        public static void TimerInit()
+        {
+            // Query the high-resolution timer only if it is supported.
+            // A returned frequency of 1000 typically indicates that it is not
+            // supported and is emulated by the OS using the same value that is
+            // returned by Environment.TickCount.
+            // A return value of 0 indicates that the performance counter is
+            // not supported.
+            int returnVal = QueryPerformanceFrequency(ref frequency);
+
+            if (returnVal != 0 && frequency != 1000)
+            {
+                // The performance counter is supported.
+                isPerfCounterSupported = true;
+
+                //divider = (frequency / 1000000);
+            }
+            else
+            {
+                // The performance counter is not supported. Use
+                // Environment.TickCount instead.
+                frequency = 1000;
+            }
+
+
+        }
+
+        /* 
+         * =========================================================================================================================================================
+         * Nazwa:           Int64 TimerFrequency
+         * 
+         * Przeznaczenie:   Wartosc ustawionej w Init czestotliwosci. Potrzebna w funkcji pomiaru dla okreslenia wartosci czasu
+         *                  
+         * Parametry:       -
+         * =========================================================================================================================================================
+         */
+        public static Int64 TimerFrequency
+        {
+            get
+            {
+                return frequency;
+            }
+        }
+
+        /* 
+         * =========================================================================================================================================================
+         * Nazwa:           Int64 TimerValue
+         * 
+         * Przeznaczenie:   Wartosc czasu.
+         *                  
+         * Parametry:       -
+         * =========================================================================================================================================================
+         */
+        public static Int64 TimerValue
+        {
+            get
+            {
+                Int64 tickCount = 0;
+
+                if (isPerfCounterSupported)
+                {
+                    // Get the value here if the counter is supported.
+                    QueryPerformanceCounter(ref tickCount);
+                    return ((tickCount * 1000000) / frequency);
+                }
+                else
+                {
+                    // Otherwise, use Environment.TickCount.
+                    return (Int64)Environment.TickCount;
+                }
+            }
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        /* 
+         * =========================================================================================================================================================
+         * Nazwa:           button_Q1_4_Set_Click
+         * 
+         * Przeznaczenie:   Przyciski kontroluj±ce wyj¶cia w obrazie. Wykorzystywane podczas testów na pocz±tku. Do dalszego wykorzystania.
+         *                  
+         * Parametry:       -
+         * =========================================================================================================================================================
+         */
+        private void button_Q1_4_Set_Click(object sender, EventArgs e)
+        {
+            // Zatrzymanie odczytu IO w w±tku 100 ms
+            MainForm.StopIORead = true;
+            Cursor.Current = Cursors.WaitCursor;
+            Thread.Sleep(20);
+
+            Modbus.io.q[1] |= 0x10;
+            Modbus.ModbusRequest_WyslanieObrazuWyjsc();
+            Modbus.ModbusWaitAck_0x10(100000);
+
+            // Wznowienie odczytu IO w w±tku 100 ms
+            Thread.Sleep(20);
+            MainForm.StopIORead = false;
+            Cursor.Current = Cursors.Default;
+
+            Tools.Log("Set Q1.4");
+        }
+
+        /* 
+         * =========================================================================================================================================================
+         * Nazwa:           button_Q1_4_Reset_Click
+         * 
+         * Przeznaczenie:   Przyciski kontroluj±ce wyj¶cia w obrazie. Wykorzystywane podczas testów na pocz±tku. Do dalszego wykorzystania.
+         *                  
+         * Parametry:       -
+         * =========================================================================================================================================================
+         */
+        private void button_Q1_4_Reset_Click(object sender, EventArgs e)
+        {
+            // Zatrzymanie odczytu IO w w±tku 100 ms
+            MainForm.StopIORead = true;
+            Cursor.Current = Cursors.WaitCursor;
+            Thread.Sleep(20);
+
+            Modbus.io.q[1] &= 0xef;
+            Modbus.ModbusRequest_WyslanieObrazuWyjsc();
+            Modbus.ModbusWaitAck_0x10(100000);
+
+            // Wznowienie odczytu IO w w±tku 100 ms
+            Thread.Sleep(20);
+            MainForm.StopIORead = false;
+            Cursor.Current = Cursors.Default;
+
+            Tools.Log("Reset Q1.4");
+        }
+
+        /* 
+         * =========================================================================================================================================================
+         * Nazwa:           button_Q1_5_Set_Click
+         * 
+         * Przeznaczenie:   Przyciski kontroluj±ce wyj¶cia w obrazie. Wykorzystywane podczas testów na pocz±tku. Do dalszego wykorzystania.
+         *                  
+         * Parametry:       -
+         * =========================================================================================================================================================
+         */
+        private void button_Q1_5_Set_Click(object sender, EventArgs e)
+        {
+            // Zatrzymanie odczytu IO w w±tku 100 ms
+            MainForm.StopIORead = true;
+            Cursor.Current = Cursors.WaitCursor;
+            Thread.Sleep(20);
+
+            Modbus.io.q[1] |= 0x20;
+            Modbus.ModbusRequest_WyslanieObrazuWyjsc();
+            Modbus.ModbusWaitAck_0x10(100000);
+
+            // Wznowienie odczytu IO w w±tku 100 ms
+            Thread.Sleep(20);
+            MainForm.StopIORead = false;
+            Cursor.Current = Cursors.Default;
+
+            Tools.Log("Set Q1.5");
+        }
+
+        /* 
+         * =========================================================================================================================================================
+         * Nazwa:           button_Q1_5_Reset_Click
+         * 
+         * Przeznaczenie:   Przyciski kontroluj±ce wyj¶cia w obrazie. Wykorzystywane podczas testów na pocz±tku. Do dalszego wykorzystania.
+         *                  
+         * Parametry:       -
+         * =========================================================================================================================================================
+         */
+        private void button_Q1_5_Reset_Click(object sender, EventArgs e)
+        {
+            // Zatrzymanie odczytu IO w w±tku 100 ms
+            MainForm.StopIORead = true;
+            Cursor.Current = Cursors.WaitCursor;
+            Thread.Sleep(20);
+
+            Modbus.io.q[1] &= 0xdf;
+            Modbus.ModbusRequest_WyslanieObrazuWyjsc();
+            Modbus.ModbusWaitAck_0x10(100000);
+
+            // Wznowienie odczytu IO w w±tku 100 ms
+            Thread.Sleep(20);
+            MainForm.StopIORead = false;
+            Cursor.Current = Cursors.Default;
+
+            Tools.Log("Reset Q1.5");
+        }
+
+
+
+

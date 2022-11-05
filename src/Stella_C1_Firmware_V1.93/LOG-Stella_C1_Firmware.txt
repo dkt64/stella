@@ -1,0 +1,12 @@
+****************************************************************************************
+Stella_C1_Firmware V1.2
+****************************************************************************************
+2011-07-13  Dodano funkcjê P_CylinderUGory - odczyt wejœcia I1.5 (cylinder u góry). Wykorzystanie w funkcji CylinderUGory
+2011-07-13  Nie pozwolono na ustawienie zminnej p_ref_cnt_nakr na zero przy starcie referowania - jezeli jest 0 to jest 1
+2011-07-13  Dodano warunek na obliczenie tolerancji - jezeli 0xffff lub 0x0 to nie obliczamy
+2011-07-13  Dodano funkcjê Wtopienie() - kontrola wtopienia i referowanie wtopienia
+2011-07-13  Dodano normalizacjê pomiarów analogowych (powy¿ej zakresu ustawic na wartoœæ max,
+			poni¿ej 0 ustawiæ na 0); NormalizujADC_Pomiar, NormalizujADC_AIN
+
+2011-07-14 Wersja softu w obrazie SM[29]
+2014-09-10 Poprawa reakcji na wejœcie od œluzy (zg³oszenie b³êdu przy braku sygna³u)
