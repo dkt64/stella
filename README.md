@@ -8,7 +8,7 @@
 
 **Notes**
 * The system is used with success in production plants in automotive industry for 50Hz projection welding machines
-* It's not developed enylonger since couple years
+* It's not developed anylonger since couple years
 * Check 'doc' folder for more information
 
 **Have a nice day :)**
